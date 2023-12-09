@@ -61,7 +61,7 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     draw++;
     if (turn) {
-      btn.style.color="#1b4332";
+      btn.style.color = "#1b4332";
       btn.textContent = p_1;
       turn = !turn;
     } else {
@@ -89,7 +89,7 @@ buttons.forEach((btn) => {
 // Matching Pattern
 
 let MatchWinner = () => {
-  if (draw ==9) {
+  if (draw == 9) {
     document.getElementById("win_msg").innerHTML = `<h1>Match Draw</h1>`;
     document.getElementById("alt").style.display = "flex";
     draw = 0;
@@ -101,11 +101,13 @@ let MatchWinner = () => {
       if (t_1 != "" && t_2 != "" && t_3 != "") {
         if (t_1 == t_2 && t_2 == t_3) {
           if (t_1 == p_1) {
+            document.getElementById("rest_g").style.display = "none";
             document.getElementById(
               "win_msg"
             ).innerHTML = `<h1>${n_1} <br> Won the Game</h1>`;
             draw = 0;
           } else {
+            document.getElementById("rest_g").style.display = "none";
             document.getElementById(
               "win_msg"
             ).innerHTML = `<h1>${n_2} <br> Won the Game</h1>`;
