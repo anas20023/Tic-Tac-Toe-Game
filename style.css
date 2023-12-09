@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+.cc
+{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background-color: #f1f1f1;
+  width:400px;
+  padding: 40px;
+  height: 400px;
+  margin-top: 30px;
+  border-radius: 6px;
+
+}
+.btn
+{
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
+#alt
+{
+  display: none;
+}

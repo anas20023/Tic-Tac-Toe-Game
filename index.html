@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/output/tailwind.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic-Tac-Toe</title>
+</head>
+
+<body class="bg-gray-700">
+    <section class="container flex flex-col justify-center items-center">
+        <h2 class="text-white font-medium text-4xl my-4">
+            Tic-Tac-Toe
+        </h2>
+        <div class="cc shadow-2xl dark:bg-gray-700">
+            <button class="btn text-6xl font-medium"></button>
+            <button class="btn text-6xl font-medium"></button>
+            <button class="btn text-6xl font-medium"></button>
+            <button class="btn text-6xl font-medium"></button>
+            <button class="btn text-6xl font-medium"></button>
+            <button class="btn text-6xl font-medium"></button>
+            <button class="btn text-6xl font-medium"></button>
+            <button class="btn text-6xl font-medium"></button>
+            <button class="btn text-6xl font-medium"></button>
+        </div>
+        <button id="rest_g" class="text-gray-700 bg-white px-4 py-2 text-lg font-medium rounded-sm mt-4 hidden">Reset Game</button>
+    </section>
+    <div id="alt_stg"
+        class="bg-gray-800 w-96 h-96 absolute top-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center transition-all  shadow-xl rounded-lg">
+        <button id="stg" class="text-gray-700 bg-white px-4 py-2 text-lg font-medium rounded-sm">Start Game</button>
+
+    </div>
+    <div id="alt"
+        class="bg-gray-800 w-96 h-96 absolute top-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center transition-all  shadow-xl rounded-lg">
+        <h2 class="text-white text-4xl my-10 font-medium">Winner is X</h2>
+        <button id="newg" class="text-gray-700 bg-white px-4 py-2 text-lg font-medium rounded-sm">New Game</button>
+
+    </div>
+
+    <script src="app.js"></script>
+
+
+</body>
+
+</html>
