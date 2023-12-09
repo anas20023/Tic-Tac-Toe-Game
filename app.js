@@ -48,5 +48,39 @@ buttons.forEach((btn) => {
       turn = !turn;
     }
     btn.disabled = true;
+    MatchWinner();
   });
 });
+
+// Reset Button
+
+buttons.forEach((btn) => {
+  reset_game.addEventListener("click", (turn) => {
+    btn.textContent = "";
+    btn.disabled = false;
+  });
+});
+
+// Matching Pattern
+
+let MatchWinner = () => {
+  for (let i of WinP) {
+    let t_1 = buttons[i[0]].innerHTML;
+    let t_2 = buttons[i[1]].innerHTML;
+    let t_3 = buttons[i[2]].innerHTML;
+    if (t_1 != "" && t_2 != "" && t_3 != "") {
+      if (t_1 == t_2 && t_2 == t_3) {
+        if (t_1 == p_1) {
+          document.getElementById(
+            "win_msg"
+          ).innerHTML = `<h1>${n_1} <br> Won the Game</h1>`;
+        } else {
+          document.getElementById(
+            "win_msg"
+          ).innerHTML = `<h1>${n_2} <br> Won the Game</h1>`;
+        }
+        document.getElementById("alt").style.display = "flex";
+      }
+    }
+  }
+};
