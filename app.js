@@ -59,12 +59,11 @@ let buttons = document.querySelectorAll(".btn");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
+    draw++;
     if (turn) {
-      draw++;
       btn.textContent = p_1;
       turn = !turn;
     } else {
-      draw++;
       btn.textContent = p_2;
       turn = !turn;
     }
@@ -78,9 +77,9 @@ buttons.forEach((btn) => {
 
 buttons.forEach((btn) => {
   reset_game.addEventListener("click", () => {
-    draw=0;
-    p_1=n_1[0].toUpperCase();
-    p_2=n_2[0].toUpperCase();
+    draw = 0;
+    p_1 = n_1[0].toUpperCase();
+    p_2 = n_2[0].toUpperCase();
     btn.textContent = "";
     btn.disabled = false;
   });
@@ -89,7 +88,7 @@ buttons.forEach((btn) => {
 // Matching Pattern
 
 let MatchWinner = () => {
-  if (draw > 10) {
+  if (draw ==9) {
     document.getElementById("win_msg").innerHTML = `<h1>Match Draw</h1>`;
     document.getElementById("alt").style.display = "flex";
     draw = 0;
