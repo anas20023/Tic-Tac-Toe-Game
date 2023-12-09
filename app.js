@@ -8,7 +8,7 @@ st_game.addEventListener("click", () => {
   n_1 = prompt("Enter 1'st Player Name");
   n_2 = prompt("Enter 2nd Player Name");
 
-  while (n_1 === "" || n_2 === "") {
+  while (n_1 === "" || n_2 === "" || n_1 === null || n_2 === null) {
     alert("Enter a Valid Name !!");
     n_1 = prompt("Enter 1'st Player Name");
     n_2 = prompt("Enter 2nd Player Name");
@@ -22,7 +22,16 @@ st_game.addEventListener("click", () => {
 turn = true;
 
 // Wining Patterns
-let WinP = [[0, 1, 2]];
+let WinP = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [2, 4, 6],
+  [0, 4, 8],
+];
 
 /// Button Object
 
