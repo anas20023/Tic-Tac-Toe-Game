@@ -1,4 +1,5 @@
 let n_1, n_2, p_1, p_2, turn, st_game, reset_game;
+let draw = 0;
 
 // Start Game Button
 st_game = document.querySelector("#stg");
@@ -11,7 +12,14 @@ st_game.addEventListener("click", () => {
   n_1 = prompt("Enter 1'st Player Name");
   n_2 = prompt("Enter 2nd Player Name");
 
-  while (n_1 === "" || n_2 === "" || n_1 === null || n_2 === null ||n_1 === " " || n_2 === " ") {
+  while (
+    n_1 === "" ||
+    n_2 === "" ||
+    n_1 === null ||
+    n_2 === null ||
+    n_1 === " " ||
+    n_2 === " "
+  ) {
     alert("Enter a Valid Name !!");
     n_1 = prompt("Enter 1'st Player Name");
     n_2 = prompt("Enter 2nd Player Name");
@@ -52,12 +60,15 @@ let buttons = document.querySelectorAll(".btn");
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (turn) {
+      draw++;
       btn.textContent = p_1;
       turn = !turn;
     } else {
+      draw++;
       btn.textContent = p_2;
       turn = !turn;
     }
+
     btn.disabled = true;
     MatchWinner();
   });
@@ -67,6 +78,9 @@ buttons.forEach((btn) => {
 
 buttons.forEach((btn) => {
   reset_game.addEventListener("click", () => {
+    draw=0;
+    p_1=n_1[0].toUpperCase();
+    p_2=n_2[0].toUpperCase();
     btn.textContent = "";
     btn.disabled = false;
   });
@@ -75,22 +89,30 @@ buttons.forEach((btn) => {
 // Matching Pattern
 
 let MatchWinner = () => {
-  for (let i of WinP) {
-    let t_1 = buttons[i[0]].innerHTML;
-    let t_2 = buttons[i[1]].innerHTML;
-    let t_3 = buttons[i[2]].innerHTML;
-    if (t_1 != "" && t_2 != "" && t_3 != "") {
-      if (t_1 == t_2 && t_2 == t_3) {
-        if (t_1 == p_1) {
-          document.getElementById(
-            "win_msg"
-          ).innerHTML = `<h1>${n_1} <br> Won the Game</h1>`;
-        } else {
-          document.getElementById(
-            "win_msg"
-          ).innerHTML = `<h1>${n_2} <br> Won the Game</h1>`;
+  if (draw > 10) {
+    document.getElementById("win_msg").innerHTML = `<h1>Match Draw</h1>`;
+    document.getElementById("alt").style.display = "flex";
+    draw = 0;
+  } else {
+    for (let i of WinP) {
+      let t_1 = buttons[i[0]].innerHTML;
+      let t_2 = buttons[i[1]].innerHTML;
+      let t_3 = buttons[i[2]].innerHTML;
+      if (t_1 != "" && t_2 != "" && t_3 != "") {
+        if (t_1 == t_2 && t_2 == t_3) {
+          if (t_1 == p_1) {
+            document.getElementById(
+              "win_msg"
+            ).innerHTML = `<h1>${n_1} <br> Won the Game</h1>`;
+            draw = 0;
+          } else {
+            document.getElementById(
+              "win_msg"
+            ).innerHTML = `<h1>${n_2} <br> Won the Game</h1>`;
+            draw = 0;
+          }
+          document.getElementById("alt").style.display = "flex";
         }
-        document.getElementById("alt").style.display = "flex";
       }
     }
   }
