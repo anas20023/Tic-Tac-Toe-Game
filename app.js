@@ -61,7 +61,6 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     draw++;
     if (turn) {
-      btn.style.color = "#1b4332";
       btn.textContent = p_1;
       turn = !turn;
     } else {
