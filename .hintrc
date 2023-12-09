@@ -3,7 +3,6 @@
     "development"
   ],
   "hints": {
-    "compat-api/css": "off",
     "button-type": "off",
     "axe/name-role-value": "off"
   }
